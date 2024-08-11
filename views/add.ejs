@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs'); -%>
+<div class="container mt-5">
+    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Add a New Book</h1>
+    <form action="/addBook" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="author" name="author" required>
+        </div>
+        <div class="mb-3">
+            <label for="isbn" class="form-label">ISBN</label>
+            <input type="text" class="form-control" id="isbn" name="isbn" required>
+        </div>
+        <div class="mb-3">
+            <label for="opinion" class="form-label">Opinion</label>
+            <textarea class="form-control" id="opinion" name="opinion" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary btn-lg px-4">Add Book</button>
+    </form>
+</div>
+<%- include('partials/footer.ejs'); -%>

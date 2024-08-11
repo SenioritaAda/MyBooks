@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="100%" height="100%" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><%= book.title %> by <%= book.autor %></h1>
+        <p class="lead" id="opinion"><%= book.opinion %></p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <form class="edit" action="/edit" method="post">
+                <input type="hidden" name="updatedItemId" value="<%= book.id %>">
+                <div>
+                    <textarea id="input" name="updatedBookOpinion" value="<%= book.opinion %>" autocomplete="off" autofocus="true" 
+                    class="large-textarea" hidden="true"><%= book.opinion %></textarea>
+                </div>         
+                <button id="done" class="edit btn btn-outline-secondary btn-lg px-4" type="submit" hidden>Update</button>
+              </form>
+            <button id="edit" value="<%= book.id %>" class="btn btn-outline-secondary btn-lg px-4" onclick="handler()">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    function handler() {
+     document.getElementById("opinion").setAttribute("hidden", true);
+      document.getElementById("edit").setAttribute("hidden", true);
+      document.getElementById("done").removeAttribute("hidden");
+      document.getElementById("input").removeAttribute("hidden");
+    }
+    
+  </script>
+
+<%- include('partials/footer.ejs'); -%>

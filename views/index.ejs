@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs'); -%>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% books.forEach(book => { %>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" class="bd-placeholder-img card-img-top" width="100%" height="100%" alt="<%= book.title %> by <%= book.autor %> book cover">
+                        <div class="card-body">
+                            <p class="card-text"><strong><%= book.title %> by <%= book.autor %></strong></p>
+                            <p class="card-text"><%= book.opinion %></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <form class="item" action="/view" method="get">
+                                    <button type="submit" name="view" value="<%= book.id %>" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </form>
+                                    <form class="item" action="/delete" method="post">
+                                    <button type="submit" name="view" value="<%= book.id %>" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>  
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs'); -%>
